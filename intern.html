@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternConnect - Break the Gatekeeping</title>
+    <link rel="stylesheet" href="style.css">
+    <div class="nav-actions">
+    <div id="app"></div>
+
+        <!-- Firebase App (required) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<!-- Firebase Firestore (optional, if you save user data) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+
+</div>
+
+<!-- Assistant Container -->
+<div id="assistant-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+  <button id="assistant-btn" class="btn btn-primary">
+    🤖 Ask Assistant
+  </button>
+  <div id="assistant-chat" style="display: none; margin-top: 10px;">
+    <input type="text" id="assistant-input" placeholder="Ask the AI assistant..." />
+    <button id="assistant-send" class="btn btn-secondary">Send</button>
+  </div>
+</div>
+
+
+</head>
+<body>
+    <div id="app"></div>
+    <script src="app.js"></script>
+</body>
+</html>
