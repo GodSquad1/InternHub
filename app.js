@@ -3,15 +3,7 @@
  
 
 // Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyD5bbdw9K7hx738oYGxWCDKlYBs4CZJnpo",
-  authDomain: "internconnect-ec09e.firebaseapp.com",
-  projectId: "internconnect-ec09e",
-  storageBucket: "internconnect-ec09e.firebasestorage.app",
-  messagingSenderId: "617689931580",
-  appId: "1:617689931580:web:a5f6e6437cedae296d8839",
-  measurementId: "G-QHKGHHM7KP"
-};
+const firebaseConfig = {}
 
 
 firebase.initializeApp(firebaseConfig);
