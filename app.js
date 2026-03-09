@@ -1,25 +1,26 @@
-// ============================================
+ 
 // INTERNHUB - COMPLETE VANILLA JS APPLICATION
-// ============================================
+ 
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "REPLACE WITH YOUR API",
-  authDomain: "REPLACE WITH YOUR API",
-  projectId: "REPLACE WITH YOUR API",
-  storageBucket: "REPLACE WITH YOUR API",
-  messagingSenderId: "REPLACE WITH YOUR API",
-  appId: "REPLACE WITH YOUR API",
-  measurementId: "REPLACE WITH YOUR API"
+  apiKey: "AIzaSyD5bbdw9K7hx738oYGxWCDKlYBs4CZJnpo",
+  authDomain: "internconnect-ec09e.firebaseapp.com",
+  projectId: "internconnect-ec09e",
+  storageBucket: "internconnect-ec09e.firebasestorage.app",
+  messagingSenderId: "617689931580",
+  appId: "1:617689931580:web:a5f6e6437cedae296d8839",
+  measurementId: "G-QHKGHHM7KP"
 };
+
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// ============================================
+ 
 // STATE MANAGEMENT
-// ============================================
+ 
 
 const state = {
   currentPage: "home",
@@ -68,9 +69,9 @@ const state = {
   }
 };
 
-// ============================================
+ 
 // UTILITY FUNCTIONS
-// ============================================
+ 
 
 function debounce(func, wait) {
   let timeout;
@@ -115,10 +116,6 @@ function restoreFocus() {
 }
 
 const debouncedRender = debounce(() => render(), 250);
-
-// ============================================
-// MOCK DATA
-// ============================================
 
 const MOCK_INTERNSHIPS = [
   {
@@ -456,9 +453,9 @@ const INTERVIEW_VOICES = [
   { id: "XB0fDUnXU5powFXDhCwa", name: "Charlotte (Female)" },
 ];
 
-// ============================================
+ 
 // ROUTING
-// ============================================
+ 
 
 function navigate(page) {
   state.currentPage = page;
@@ -466,9 +463,9 @@ function navigate(page) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// ============================================
+ 
 // NAVIGATION COMPONENT
-// ============================================
+ 
 
 function Navigation() {
   const user = auth.currentUser;
@@ -515,9 +512,9 @@ function Navigation() {
   `;
 }
 
-// ============================================
+ 
 // HOME PAGE
-// ============================================
+ 
 
 function HomePage() {
   return `
@@ -589,9 +586,9 @@ function HomePage() {
   `;
 }
 
-// ============================================
+ 
 // AUTH PAGES
-// ============================================
+ 
 
 function SignInPage() {
   return `
@@ -651,9 +648,9 @@ function signOutUser() {
     .catch(err => alert("Error signing out: " + err.message));
 }
 
-// ============================================
+ 
 // EXPLORE PAGE
-// ============================================
+ 
 
 function ExplorePage() {
   const filteredInternships = MOCK_INTERNSHIPS.filter(internship => {
@@ -734,9 +731,9 @@ function ExplorePage() {
   `;
 }
 
-// ============================================
+ 
 // PRACTICE PAGE
-// ============================================
+
 
 function PracticePage() {
   const isLoggedIn = auth.currentUser !== null;
@@ -1013,9 +1010,9 @@ async function loadPracticeProgress() {
   } catch (error) { console.error("Error loading progress:", error); }
 }
 
-// ============================================
+ 
 // RESUME PAGE
-// ============================================
+
 
 function ResumePage() {
   return `
@@ -1100,9 +1097,9 @@ function ResumePage() {
   `;
 }
 
-// ============================================
+ 
 // TRENDS PAGE
-// ============================================
+ 
 
 function TrendsPage() {
   return `
@@ -1178,9 +1175,9 @@ function TrendsPage() {
   `;
 }
 
-// ============================================
+ 
 // COMMUNITY PAGE
-// ============================================
+ 
 
 function CommunityPage() {
   let filteredReviews = state.reviews ? [...state.reviews] : [];
@@ -1307,9 +1304,9 @@ function CommunityPage() {
   `;
 }
 
-// ============================================
+ 
 // AI INTERVIEW COACH PAGE
-// ============================================
+ 
 
 function InterviewPage() {
   const { isActive, field, experienceLevel, focus, company, conversationHistory, isLoading, isSpeaking, isRecording } = state.interview;
@@ -1376,7 +1373,7 @@ function InterviewPage() {
             <div style="display:flex; flex-direction:column; gap:1.25rem;">
               ${[
                 { icon: "🤖", title: "AI Interviewer", desc: "A strict, realistic AI interviewer that adapts based on your answers" },
-                { icon: "🎙️", title: "Voice Responses", desc: "The interviewer speaks using ElevenLabs voice synthesis for a real feel" },
+                { icon: "🎙️", title: "Voice Responses", desc: "The responder can respond with voice synthesis for a real feel" },
                 { icon: "🎯", title: "Adaptive Questions", desc: "Questions get harder or easier based on your performance" },
                 { icon: "📊", title: "Detailed Feedback", desc: "Full performance report after your interview session" },
                 { icon: "💡", title: "Get Hints", desc: "Stuck? Request a hint without ending the interview" },
@@ -1503,9 +1500,8 @@ function InterviewPage() {
   `;
 }
 
-// ============================================
-// INTERVIEW COACH LOGIC
-// ============================================
+ 
+// INTERVIEW COACH 
 
 function setInterviewFocus(focus) {
   state.interview.focus = focus;
@@ -1895,9 +1891,9 @@ function scrollChatToBottom() {
   }, 100);
 }
 
-// ============================================
+ 
 // FOOTER
-// ============================================
+
 
 function Footer() {
   return `
@@ -1945,9 +1941,9 @@ function Footer() {
   `;
 }
 
-// ============================================
+
 // EVENT HANDLERS
-// ============================================
+
 
 function handleResumeUpload(input) {
   if (input.files && input.files[0]) {
@@ -2062,9 +2058,9 @@ async function fetchReviews() {
   }
 }
 
-// ============================================
+ 
 // SCROLL & ANIMATION HELPERS
-// ============================================
+ 
 
 function initScrollAnimations() {
   const observer = new IntersectionObserver(entries => {
@@ -2092,9 +2088,9 @@ function initNavbarScroll() {
   });
 }
 
-// ============================================
+ 
 // MAIN RENDER FUNCTION
-// ============================================
+ 
 
 async function render() {
   saveFocus();
@@ -2138,9 +2134,9 @@ async function render() {
   }
 }
 
-// ============================================
+ 
 // INITIALIZE
-// ============================================
+ 
 
 if (location.hostname === "localhost") {
   try { db.useEmulator("localhost", 8080); } catch(e) {}
